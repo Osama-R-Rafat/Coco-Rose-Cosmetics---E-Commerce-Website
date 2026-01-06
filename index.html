@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Coco & Rose - منتجات طبيعية للعناية بالبشرة والشعر والجسم">
+    <title>Coco & Rose Cosmetics | Natural Beauty Products</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdlinked.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile.css">
+    <link rel="stylesheet" href="animations.css">
+</head>
+
+<body>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar" id="announcementBar">
+        <span class="announcement-text">🎉 خصم 10% على أول طلب لك! استخدم كود: MEGO&MO - شحن مجاني للطلبات فوق 500 جنيه
+            🚚</span>
+        <button class="announcement-close" onclick="document.getElementById('announcementBar').style.display='none'"
+            aria-label="إغلاق الإعلان">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <img src="images/logo.png" alt="Coco & Rose" class="loading-logo">
+        <div class="loading-spinner"></div>
+        <p class="loading-text">جاري التحميل...</p>
+    </div>
+
+    <!-- Floating Social Sidebar -->
+    <div class="floating-social">
+        <a href="https://www.facebook.com/profile.php?id=61582813863599" target="_blank" aria-label="Facebook">
+            <img src="images/facebook.png" alt="Facebook">
+        </a>
+        <a href="https://instagram.com/cocoandrose_cosmotics" target="_blank" aria-label="Instagram">
+            <img src="images/instagram.png" alt="Instagram">
+        </a>
+        <a href="https://wa.me/201020909939" target="_blank" aria-label="WhatsApp">
+            <img src="images/whatsapp.png" alt="WhatsApp">
+        </a>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" aria-label="العودة للأعلى">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Floating Cart Button -->
+    <button class="floating-cart-btn" id="floatingCartBtn" aria-label="عرض السلة">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-badge" id="cartBadge">0</span>
+    </button>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <img src="images/logo.png" alt="Coco & Rose Logo" class="logo">
+                <nav class="nav">
+                    <a href="#home" class="nav-link">الرئيسية</a>
+                    <a href="#products" class="nav-link">المنتجات</a>
+                    <a href="#about" class="nav-link">من نحن</a>
+                    <a href="#contact" class="nav-link">تواصل معنا</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="header-cart-btn btn-gradient" id="headerCartBtn" aria-label="عرض السلة">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-badge" id="headerCartBadge">0</span>
+                    </button>
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="القائمة">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-header">
+            <img src="images/logo.png" alt="Coco & Rose" class="mobile-logo">
+            <button class="mobile-nav-close" id="mobileNavClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="mobile-nav-links">
+            <a href="#home" class="mobile-nav-link">
+                <i class="fas fa-home"></i>
+                الرئيسية
+            </a>
+            <a href="#products" class="mobile-nav-link">
+                <i class="fas fa-shopping-bag"></i>
+                المنتجات
+            </a>
+            <a href="#about" class="mobile-nav-link">
+                <i class="fas fa-info-circle"></i>
+                من نحن
+            </a>
+            <a href="#contact" class="mobile-nav-link">
+                <i class="fas fa-phone"></i>
+                تواصل معنا
+            </a>
+        </nav>
+        <div class="mobile-nav-footer">
+            <a href="https://wa.me/201020909939" class="mobile-whatsapp">
+                <i class="fab fa-whatsapp"></i>
+                تواصل عبر واتساب
+            </a>
+        </div>
+    </div>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <img src="images/logo.png" alt="Coco & Rose" class="hero-logo">
+                <h1 class="hero-title">Coco & Rose</h1>
+                <p class="hero-subtitle">Naturally Beautiful, Inside and Out</p>
+                <p class="hero-description">منتجات طبيعية للعناية بالبشرة والشعر والجسم</p>
+                <a href="#products" class="btn btn-primary">تسوق الآن</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about scroll-reveal" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">من نحن</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="about-content">
+                <p class="about-text">
+                    في Coco & Rose، نؤمن بجمال الطبيعة. نقدم منتجات عناية طبيعية بالكامل للبشرة والشعر والجسم،
+                    مصنوعة من أجود المكونات الطبيعية لتمنحك جمالاً حقيقياً من الداخل والخارج.
+                </p>
+                <div class="features">
+                    <div class="feature-card">
+                        <i class="fas fa-leaf feature-icon"></i>
+                        <h3>مكونات طبيعية 100%</h3>
+                        <p>جميع منتجاتنا من مكونات طبيعية آمنة</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-heart feature-icon"></i>
+                        <h3>صنع بحب</h3>
+                        <p>كل منتج مصنوع بعناية فائقة</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-star feature-icon"></i>
+                        <h3>جودة عالية</h3>
+                        <p>نضمن لك أفضل النتائج</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lifestyle Section -->
+    <section class="lifestyle scroll-reveal-scale">
+        <div class="container">
+            <div class="lifestyle-content">
+                <div class="lifestyle-image">
+                    <img src="images/lifestyle.jpg" alt="Coco & Rose Natural Products" loading="lazy">
+                    <div class="lifestyle-overlay">
+                        <div class="lifestyle-text">
+                            <h3>جمال طبيعي في كل تفصيلة</h3>
+                            <p>منتجات مصنوعة بحب من أجود المكونات الطبيعية</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials scroll-reveal-left">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">آراء عملائنا</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="testimonial-showcase">
+                <div class="testimonial-image">
+                    <img src="images/testimonial.jpg" alt="شعر صحي من أول استخدام" loading="lazy">
+                </div>
+                <div class="testimonial-content">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <h3>شعر صحي من أول استخدام</h3>
+                    <p class="testimonial-text">
+                        منتجات Coco & Rose غيّرت حياتي! شعري أصبح أقوى وأكثر لمعاناً بفضل
+                        المكونات الطبيعية 100%. النتائج واضحة من أول استخدام، وأنا سعيدة جداً
+                        بالتجربة. أنصح الجميع بتجربة هذه المنتجات الرائعة.
+                    </p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="customer-name">- عميلة سعيدة، القاهرة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose scroll-reveal-right">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">لماذا تختار Coco & Rose؟</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>توصيل سريع</h3>
+                    <p>نوصل لك المنتجات في أسرع وقت لجميع المحافظات</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>دفع عند الاستلام</h3>
+                    <p>ادفع بكل راحة عند استلام طلبك</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>منتجات آمنة</h3>
+                    <p>مكونات طبيعية 100% ومضمونة الجودة</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>دعم مستمر</h3>
+                    <p>نحن معك في كل خطوة عبر واتساب</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">منتجاتنا</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">اكتشف مجموعتنا من منتجات العناية الطبيعية</p>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>إتمام الطلب</h3>
+                <button class="modal-close" id="modalClose" aria-label="إغلاق">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Cart Content -->
+                <div id="modalCartContent" class="modal-cart-content">
+                    <!-- Free Shipping Progress -->
+                    <div class="shipping-progress-container" id="shippingProgressContainer">
+                        <p class="shipping-text" id="shippingText">باقي 500 جنيه للشحن المجاني</p>
+                        <div class="shipping-progress-bar">
+                            <div class="shipping-progress-fill" id="shippingProgressBar"></div>
+                        </div>
+                    </div>
+
+                    <div class="empty-cart" id="emptyCart" style="display: none;">
+                        <i class="fas fa-shopping-cart"></i>
+                        <p>سلة التسوق فارغة</p>
+                    </div>
+
+                    <div class="cart-items" id="cartItems">
+                        <!-- Cart items will be dynamically inserted here -->
+                    </div>
+
+                    <div class="cart-total-section" id="cartTotalSection">
+                        <div class="cart-total">
+                            <span>الإجمالي:</span>
+                            <span class="total-price" id="totalPrice">0 جنيه</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-divider"></div>
+
+                <form id="checkoutForm">
+                    <div class="form-group">
+                        <label for="customerName">
+                            <i class="fas fa-user"></i>
+                            الاسم الكامل
+                        </label>
+                        <input type="text" id="customerName" name="customerName" required
+                            placeholder="أدخل اسمك الكامل">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customerPhone">
+                            <i class="fas fa-phone"></i>
+                            رقم الهاتف
+                        </label>
+                        <input type="tel" id="customerPhone" name="customerPhone" required placeholder="01xxxxxxxxx"
+                            pattern="[0-9]{11}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customerAddress">
+                            <i class="fas fa-map-marker-alt"></i>
+                            العنوان
+                        </label>
+                        <textarea id="customerAddress" name="customerAddress" required
+                            placeholder="أدخل عنوانك بالتفصيل" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customerEmail">
+                            <i class="fas fa-envelope"></i>
+                            البريد الإلكتروني (اختياري)
+                        </label>
+                        <input type="email" id="customerEmail" name="customerEmail" placeholder="example@email.com">
+                    </div>
+
+                    <div class="order-summary">
+                        <h4>ملخص الطلب</h4>
+                        <div id="orderSummary" class="summary-items">
+                            <!-- Order items will be inserted here -->
+                        </div>
+                        <div class="summary-total">
+                            <strong>الإجمالي:</strong>
+                            <strong id="modalTotalPrice">0 جنيه</strong>
+                        </div>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button type="submit" class="btn btn-success btn-block">
+                            <i class="fab fa-whatsapp"></i>
+                            إرسال الطلب عبر واتساب
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modalOverlay"></div>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">تواصل معنا</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>اتصل بنا</h4>
+                            <p><a href="tel:+201020909939">01020909939</a></p>
+                            <p><a href="tel:+201017377281">01017377281</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>واتساب</h4>
+                            <p><a href="https://wa.me/201020909939" target="_blank">تواصل معنا مباشرة</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>ساعات العمل</h4>
+                            <p>متاح دائما 24/7 </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Coco & Rose</h3>
+                    <p>منتجات طبيعية للعناية بالبشرة والشعر</p>
+                    <p class="tagline">Naturally Beautiful, Inside and Out</p>
+                </div>
+                <div class="footer-section">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#products">المنتجات</a></li>
+                        <li><a href="#about">من نحن</a></li>
+                        <li><a href="#contact">تواصل معنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>تواصل معنا</h4>
+                    <p><i class="fas fa-phone"></i> 01020909939</p>
+                    <p><i class="fas fa-phone"></i> 01017377281</p>
+                    <div class="social-links">
+                        <a href="https://wa.me/201020909939" target="_blank" aria-label="واتساب">
+                            <img src="images/whatsapp.png" alt="WhatsApp">
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61582813863599" target="_blank"
+                            aria-label="فيسبوك">
+                            <img src="images/facebook.png" alt="Facebook">
+                        </a>
+                        <a href="https://instagram.com/cocoandrose_cosmotics" target="_blank" aria-label="إنستجرام">
+                            <img src="images/instagram.png" alt="Instagram">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Osama Reda$ All rights reserved$</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="app.js"></script>
+    <script src="mobile.js"></script>
+    <script src="animations.js"></script>
+</body>
+
+</html>
