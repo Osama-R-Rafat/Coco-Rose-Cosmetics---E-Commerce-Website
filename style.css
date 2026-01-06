@@ -61,6 +61,13 @@ body {
     overflow-x: hidden;
 }
 
+/* Hide floating social on mobile */
+@media (max-width: 768px) {
+    .floating-social {
+        display: none !important;
+    }
+}
+
 img {
     max-width: 100%;
     height: auto;
