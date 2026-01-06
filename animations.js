@@ -49,6 +49,9 @@ function setupTypingEffect() {
 // CONFETTI CELEBRATION
 // ============================================
 function celebrateOrder() {
+    // Disable confetti on mobile for performance
+    if (window.innerWidth < 768) return;
+
     const duration = 3000;
     const container = document.createElement('div');
     container.className = 'confetti-container';
@@ -353,12 +356,32 @@ document.addEventListener('DOMContentLoaded', () => {
             img.parentElement.style.overflow = 'hidden';
             img.style.transition = 'transform 0.5s ease';
 
+            // Desktop Hover
             img.parentElement.addEventListener('mouseenter', () => {
-                img.style.transform = 'scale(1.1)';
+                if (window.innerWidth >= 768) {
+                    img.style.transform = 'scale(1.1)';
+                }
             });
 
             img.parentElement.addEventListener('mouseleave', () => {
-                img.style.transform = 'scale(1)';
+                if (window.innerWidth >= 768) {
+                    img.style.transform = 'scale(1)';
+                }
+            });
+
+            // Mobile Touch (Simple tap effect)
+            img.parentElement.addEventListener('touchstart', () => {
+                if (window.innerWidth < 768) {
+                    img.style.transform = 'scale(1.05)';
+                }
+            }, { passive: true });
+
+            img.parentElement.addEventListener('touchend', () => {
+                if (window.innerWidth < 768) {
+                    setTimeout(() => {
+                        img.style.transform = 'scale(1)';
+                    }, 200);
+                }
             });
         });
     }, 500);

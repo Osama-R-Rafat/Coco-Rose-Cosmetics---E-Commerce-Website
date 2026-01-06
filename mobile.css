@@ -4,6 +4,13 @@
    =================================== */
 
 /* Scroll to Top Button */
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+        /* Slightly smaller text on mobile */
+    }
+}
+
 .scroll-top {
     position: fixed;
     bottom: 100px;

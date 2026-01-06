@@ -53,20 +53,32 @@ document.addEventListener('DOMContentLoaded', () => {
     setupEventListeners();
 
     // Update cart UI
-    updateCartUI();
+    // Setup search and filter
+    setupSearchAndFilter();
 });
 
 // ============================================
 // RENDER PRODUCTS
 // ============================================
-function renderProducts() {
+function renderProducts(productsToRender = products) {
     const productsGrid = document.getElementById('productsGrid');
 
     if (!productsGrid) return;
 
-    productsGrid.innerHTML = products.map(product => `
+    if (productsToRender.length === 0) {
+        productsGrid.innerHTML = `
+            <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-gray);">
+                <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 20px; color: var(--border-color);"></i>
+                <p>لا توجد منتجات تطابق بحثك</p>
+                <button onclick="resetFilters()" class="btn btn-primary" style="margin-top: 15px;">عرض كل المنتجات</button>
+            </div>
+        `;
+        return;
+    }
+
+    productsGrid.innerHTML = productsToRender.map(product => `
         <div class="product-card" data-product-id="${product.id}">
-            <img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy">
+            <img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy" onload="this.classList.add('loaded')">
             <div class="product-info">
                 <h3 class="product-name">${product.name}</h3>
                 <p class="product-description">${product.description}</p>
@@ -89,11 +101,15 @@ function renderProducts() {
     `).join('');
 
     // Add event listeners for quantity buttons
+    setupProductCardListeners();
+}
+
+function setupProductCardListeners() {
     document.querySelectorAll('.qty-minus').forEach(btn => {
         btn.addEventListener('click', () => {
             const id = btn.dataset.id;
             const input = document.getElementById(`qty-${id}`);
-            if (input.value > 1) {
+            if (input && input.value > 1) {
                 input.value = parseInt(input.value) - 1;
             }
         });
@@ -103,7 +119,7 @@ function renderProducts() {
         btn.addEventListener('click', () => {
             const id = btn.dataset.id;
             const input = document.getElementById(`qty-${id}`);
-            if (input.value < 99) {
+            if (input && input.value < 99) {
                 input.value = parseInt(input.value) + 1;
             }
         });
@@ -111,12 +127,97 @@ function renderProducts() {
 
     // Add event listeners for add to cart buttons
     document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', async () => {
             const productId = parseInt(btn.dataset.id);
-            const quantity = parseInt(document.getElementById(`qty-${productId}`).value);
+            const input = document.getElementById(`qty-${productId}`);
+            const quantity = input ? parseInt(input.value) : 1;
+
+            // Visual Feedback
+            const originalContent = btn.innerHTML;
+
+            // 1. Loading State
+            btn.classList.add('loading');
+            btn.innerHTML = '<i class="fas fa-circle-notch rotating"></i> جاري الإضافة...';
+
+            // Simulate network delay for effect (optional, but requested for "professional feel")
+            await new Promise(resolve => setTimeout(resolve, 600));
+
+            // 2. Add to Cart Logic
             addToCart(productId, quantity);
+
+            // 3. Success State
+            btn.classList.remove('loading');
+            btn.classList.add('success');
+            btn.innerHTML = '<i class="fas fa-check"></i> تم الإضافة';
+
+            // 4. Reset after delay
+            setTimeout(() => {
+                btn.classList.remove('success');
+                btn.innerHTML = originalContent;
+            }, 2000);
         });
     });
+}
+
+// ============================================
+// SEARCH AND FILTER
+// ============================================
+function setupSearchAndFilter() {
+    const searchInput = document.getElementById('searchInput');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+
+    let activeCategory = 'all';
+    let searchQuery = '';
+
+    function filterProducts() {
+        let filtered = products;
+
+        // Filter by category
+        if (activeCategory !== 'all') {
+            filtered = filtered.filter(p => p.category === activeCategory);
+        }
+
+        // Filter by search
+        if (searchQuery) {
+            const query = searchQuery.toLowerCase();
+            filtered = filtered.filter(p =>
+                p.name.toLowerCase().includes(query) ||
+                p.description.toLowerCase().includes(query)
+            );
+        }
+
+        renderProducts(filtered);
+    }
+
+    // Search Listener
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value.trim();
+            filterProducts();
+        });
+    }
+
+    // Filter Buttons Listener
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Update Active State
+            filterButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Set Category
+            activeCategory = btn.dataset.filter;
+            filterProducts();
+        });
+    });
+
+    // Global reset function
+    window.resetFilters = () => {
+        activeCategory = 'all';
+        searchQuery = '';
+        if (searchInput) searchInput.value = '';
+        filterButtons.forEach(b => b.classList.toggle('active', b.dataset.filter === 'all'));
+        renderProducts(products);
+    };
 }
 
 // ============================================
