@@ -34,10 +34,10 @@ const products = [
 let cart = JSON.parse(localStorage.getItem('cocoRoseCart')) || [];
 
 // WhatsApp phone number (Replace with your actual number)
-const WHATSAPP_NUMBER = "201020909939";
+const WHATSAPP_NUMBER = "201019616125";
 
 // FormSubmit email (Replace with your actual email)
-const FORMSUBMIT_EMAIL = "your-email@example.com";
+const FORMSUBMIT_EMAIL = "Osamareda170@gmail.com";
 
 // ============================================
 // INITIALIZATION
@@ -698,3 +698,4 @@ function flyToCart(sourceImage) {
     cartBtn.classList.add('bump');
     setTimeout(() => cartBtn.classList.remove('bump'), 250);
 }
+
