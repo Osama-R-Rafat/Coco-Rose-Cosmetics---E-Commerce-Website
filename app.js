@@ -827,7 +827,7 @@ function openProductDetailsModal(productId) {
             detailsHtml = `
                 <p style="font-weight: bold; color: var(--primary-color); margin-bottom: var(--spacing-sm);">محتويات المجموعة:</p>
                 <div style="margin-bottom: var(--spacing-sm);">
-                    <ul style="list-style: check; padding-right: 20px; text-align: right;">
+                    <ul style="list-style: none; padding-right: 0; text-align: right;">
                         ${product.includes.map(item => `<li style="margin-bottom: var(--spacing-xs);"><i class="fas fa-check" style="color: var(--success-color); margin-left: 5px;"></i> ${item}</li>`).join('')}
                     </ul>
                 </div>
@@ -852,6 +852,7 @@ function openProductDetailsModal(productId) {
 
         // Prevent background scrolling
         document.body.classList.add('modal-open');
+        document.documentElement.classList.add('modal-open');
 
         // Add event listener for closing the modal
         const closeButton = document.getElementById('productDetailsClose');
@@ -877,6 +878,7 @@ function closeProductDetailsModal() {
 
         // Restore background scrolling
         document.body.classList.remove('modal-open');
+        document.documentElement.classList.remove('modal-open');
 
         // Remove event listeners
         const closeButton = document.getElementById('productDetailsClose');
