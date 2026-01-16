@@ -18,16 +18,20 @@ A beautiful, modern e-commerce website for Coco & Rose natural cosmetics brand. 
 
 ```
 cosmatics/
-├── index.html          # Main HTML file
-├── style.css           # CSS styles
-├── app.js             # JavaScript functionality
+├── index.html                    # Main HTML file
+├── style.css                     # CSS styles
+├── app.js                        # JavaScript functionality
+├── data.js                       # Product data (hair care products & bundles)
 ├── images/
-│   ├── logo.png       # Brand logo
-│   ├── banner.png     # Hero banner
-│   ├── product1.png   # Product images
-│   ├── product2.png
-│   └── product3.png
-└── README.md          # This file
+│   ├── logo.png                  # Brand logo
+│   ├── banner.png                # Hero banner
+│   ├── hair-tonic-spray.jpg      # Hair Tonic Spray product
+│   ├── free-sulfate-shampoo.jpg  # Free Sulfate Shampoo product
+│   ├── leave-in-cream.jpg        # Leave In Cream product
+│   ├── complete-hair-care-set.jpg # Complete Hair Care bundle
+│   ├── daily-hair-care-duo.jpg   # Daily Hair Care bundle
+│   └── hair-boost-set.jpg        # Hair Boost bundle
+└── README.md                     # This file
 ```
 
 ## 🚀 Quick Start
@@ -106,15 +110,25 @@ If you prefer EmailJS (more customizable):
 ### 4. Customization
 
 #### Add/Edit Products
-Open `app.js` and modify the `products` array (lines 4-48):
+Open `data.js` to modify the product catalog. The site currently features **3 hair care products** and **3 product bundles**:
+
+**Individual Products:**
+- Hair Tonic Spray (اسبراي مقوي للشعر) - 170 EGP
+- Free Sulfate Shampoo (شامبو خالي من السلفات) - 230 EGP  
+- Leave In Cream (كريم ليف إن) - 250 EGP
+
+To add new products, add to the `products` array in `data.js`:
 ```javascript
 {
     id: 7,
-    name: "منتج جديد",
-    description: "وصف المنتج",
+    name: "New Product",
+    nameAr: "منتج جديد",
+    description: "Product description",
+    descriptionAr: "وصف المنتج",
     price: 250,
-    image: "images/product4.png",
-    category: "skin"
+    image: "images/product-name.jpg",
+    category: "serum",
+    stock: 50
 }
 ```
 
@@ -228,7 +242,7 @@ For questions or issues:
 ### Key Files to Edit
 1. `app.js` - Line 45: WhatsApp number
 2. `app.js` - Line 48: Email address
-3. `app.js` - Lines 4-48: Products data
+3. `data.js` - Complete file: Products and bundles data
 4. `style.css` - Lines 5-13: Brand colors
 5. `index.html` - Lines 185-210: Contact info
 

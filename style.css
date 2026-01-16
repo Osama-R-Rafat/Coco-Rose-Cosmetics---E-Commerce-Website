@@ -373,7 +373,7 @@ ul {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('images/banner.png') center/cover;
+    background: url('images/optimized/banner.webp') center/cover;
     opacity: 0.15;
     z-index: 0;
 }
@@ -1215,9 +1215,70 @@ section {
 }
 
 /* ===================================
-   OVERLAY & MODAL
+   PRODUCT DETAILS MODAL
    =================================== */
-.modal-overlay {
+#productDetailsModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    overflow-y: auto;
+}
+
+#productDetailsModal.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#productDetailsModal .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md);
+    background: var(--bg-light);
+    border-bottom: 2px solid var(--border-color);
+}
+
+#productDetailsModal .modal-header h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+#productDetailsModal .modal-close {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+}
+
+#productDetailsModal .modal-close:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+#productDetailsModal .modal-body {
+    padding: var(--spacing-md);
+    max-height: calc(90vh - 100px);
+    overflow-y: auto;
+}
+
+#productDetailsOverlay {
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.6);
@@ -1228,34 +1289,9 @@ section {
     transition: var(--transition);
 }
 
-.modal-overlay.active {
+#productDetailsOverlay.active {
     opacity: 1;
     visibility: visible;
-}
-
-.modal-divider {
-    height: 1px;
-    background: var(--border-color);
-    margin: var(--spacing-md) 0;
-}
-
-.cart-items {
-    max-height: 200px;
-    overflow-y: auto;
-    margin-bottom: var(--spacing-sm);
-    padding-right: 5px;
-    /* For scrollbar */
-}
-
-.cart-item {
-    padding: var(--spacing-sm);
-    background: #f8f8f8;
-    border: 1px solid var(--border-color);
-}
-
-.cart-item-image {
-    width: 60px;
-    height: 60px;
 }
 
 /* ===================================
@@ -1739,4 +1775,14 @@ body[data-remove-animations] {
     .about-text {
         font-size: 0.95rem;
     }
+}
+
+/* Prevent background scrolling when modal is open */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* Ensure modal content is scrollable */
+#productDetailsModal {
+    overflow-y: auto;
 }

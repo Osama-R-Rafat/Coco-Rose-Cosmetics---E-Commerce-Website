@@ -3,28 +3,102 @@
 // ============================================
 const products = [
     {
+        id: 1,
+        name: "Hair Tonic Spray – اسبراي مقوي للشعر",
+        description: "اسبراي مضاد للتساقط ومحفز لإنبات الشعر، غني بالمستخلصات العشبية والزيوت الطبيعية، يعمل على ترميم وترطيب وتنشيط فروة الرأس.",
+        price: 170,
+        image: "images/optimized/Hair_tonic_spray.webp",
+        category: "hair",
+        size: "220 ml",
+        details: [
+            "يقلل تساقط الشعر ويقوي البصيلات",
+            "ينشط فروة الرأس ويحفز الدورة الدموية",
+            "يساعد على إعادة إنبات الشعر",
+            "يرطب ويُرمم الشعر التالف",
+            "تركيبة خفيفة غير دهنية",
+            "مناسب للشعر الجاف والمتساقط"
+        ],
+        ingredients: "Water, Glycerin, Panthenol, Propylene Glycol, Caffeine, Jojoba Oil, Aloe Barbadensis Extract, Phenoxyethanol, Vitamin E, Sodium Benzoate, Ginkgo Biloba Extract, Thyme Extract, L-Arginine, Hydrolyzed Keratin, Hydrolyzed Silk Protein, Polysorbate 20, Tea Tree Oil, Green Tea Extract, Biotin, Fragrance, Citric Acid, Color"
+    },
+    {
         id: 2,
-        name: "زيت طبيعي للشعر",
-        description: "زيت معالج طبيعي للشعر، يمنح شعرك القوة واللمعان",
-        price: 220,
-        image: "images/optimized/product1.webp",
-        category: "hair"
+        name: "Free Sulfate Shampoo – شامبو فري سالفيت",
+        description: "شامبو لطيف وخالي من السلفات القاسية، ينظف الشعر بعمق مع الحفاظ على نعومته وصحة فروة الرأس.",
+        price: 120,
+        image: "images/optimized/sulfate_shampoo.webp",
+        category: "hair",
+        size: "220 ml",
+        details: [
+            "خالي من السلفات",
+            "تنظيف عميق بدون جفاف",
+            "يحافظ على نعومة ولمعان الشعر",
+            "لطيف على فروة الرأس",
+            "مناسب للاستخدام المنتظم"
+        ],
+        ingredients: "Water, Sulfosuccinate, Betaine, Comperlan, Panthenol, Glycerin, Caffeine, Sodium Benzoate, Total Gard, Guar Gum, Parfum, Color"
     },
     {
-        id: 4,
-        name: "سبراي تونيك للشعر",
-        description: "مكونات طبيعية، يقوي الشعر ويحميه من التساقط",
-        price: 160,
-        image: "images/optimized/product2.webp",
-        category: "hair"
+        id: 3,
+        name: "Leave In Cream – كريم ليف إن",
+        description: "كريم مرطب ومغذي يُترك على الشعر بدون شطف، غني بزبدة الشيا والهيالورونيك أسيد وزيت نخالة الأرز.",
+        price: 250,
+        image: "images/optimized/Leave_in_cream.webp",
+        category: "hair",
+        size: "220 g",
+        details: [
+            "ترطيب عميق يدوم طويلًا",
+            "يرمم الشعر التالف",
+            "يهدئ فروة الرأس",
+            "يقلل الهيشان والتقصف",
+            "لا يحتاج إلى شطف"
+        ],
+        ingredients: "Water, Easylux Ultra, Cetyl Alcohol, Rice Bran Oil, Isopropyl Myristate, Shea Butter, Catamodia Emulsion, Hyaluronic Acid, Aroma Correct, Total Guard, Parfum, BTMS 80"
+    }
+];
+
+// ============================================
+// BUNDLES DATA
+// ============================================
+const bundles = [
+    {
+        id: 101,
+        name: "المجموعة الكاملة",
+        description: "روتين متكامل مناسب للشعر الجاف والمتساقط",
+        includes: [
+            "Hair Tonic Spray 220 ml",
+            "Free Sulfate Shampoo 220 ml",
+            "Leave In Cream 220 g"
+        ],
+        price: 540,
+        originalPrice: 540,
+        image: "images/optimized/Group1.webp",
+        category: "bundle"
     },
     {
-        id: 6,
-        name: "سيروم للبشرة",
-        description: "سيروم طبيعي للعناية بالبشرة وترطيبها العميق",
-        price: 200,
-        image: "images/optimized/product3.webp",
-        category: "skin"
+        id: 102,
+        name: "التجميعة الثانية – الترطيب العميق",
+        description: "كريم ليف إن يُترك على الشعر لترطيب مضاعف وشامبو فري سالفيت ينظف ويرطب بدون إضرار بالشعر",
+        includes: [
+            "Leave In Cream 220 g",
+            "Free Sulfate Shampoo 220 ml"
+        ],
+        price: 370,
+        originalPrice: 370,
+        image: "images/optimized/Group2.webp",
+        category: "bundle"
+    },
+    {
+        id: 103,
+        name: "التجميعة الثالثة – محاربة التساقط",
+        description: "اسبراي مضاد للتساقط وشامبو فري سالفيت لتنشيط فروة الرأس وتقوية البصيلات",
+        includes: [
+            "Hair Tonic Spray 220 ml",
+            "Free Sulfate Shampoo 220 ml"
+        ],
+        price: 290,
+        originalPrice: 290,
+        image: "images/optimized/Group3.webp",
+        category: "bundle"
     }
 ];
 
@@ -34,10 +108,10 @@ const products = [
 let cart = JSON.parse(localStorage.getItem('cocoRoseCart')) || [];
 
 // WhatsApp phone number (Replace with your actual number)
-const WHATSAPP_NUMBER = "201019616125";
+const WHATSAPP_NUMBER = "01017377281";
 
 // FormSubmit email (Replace with your actual email)
-const FORMSUBMIT_EMAIL = "Osamareda170@gmail.com";
+const FORMSUBMIT_EMAIL = "mahmedsayed726@gmail.com";
 
 // ============================================
 // INITIALIZATION
@@ -57,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ============================================
 // RENDER PRODUCTS
 // ============================================
-function renderProducts(productsToRender = products) {
+function renderProducts(productsToRender = [...products, ...bundles]) {
     const productsGrid = document.getElementById('productsGrid');
 
     if (!productsGrid) return;
@@ -73,12 +147,27 @@ function renderProducts(productsToRender = products) {
         return;
     }
 
-    productsGrid.innerHTML = productsToRender.map(product => `
+    productsGrid.innerHTML = productsToRender.map(product => {
+        // Check if it's a bundle
+        const isBundle = product.category === 'bundle';
+
+        // Build description - for bundles show includes as bullet list
+        let displayDescription = product.description;
+        if (isBundle && product.includes) {
+            displayDescription = `
+                <div style="margin-bottom: 8px;">${product.description}</div>
+                <ul style="text-align: right; font-size: 0.85rem; color: var(--text-gray); padding-right: 20px; margin: 8px 0;">
+                    ${product.includes.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+            `;
+        }
+
+        return `
         <div class="product-card" data-product-id="${product.id}">
             <img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy" decoding="async" width="400" height="280" onload="this.classList.add('loaded')">
             <div class="product-info">
                 <h3 class="product-name">${product.name}</h3>
-                <p class="product-description">${product.description}</p>
+                <div class="product-description">${displayDescription}</div>
                 <div class="product-footer">
                     <div class="product-price">
                         ${product.price} <small>جنيه</small>
@@ -95,7 +184,8 @@ function renderProducts(productsToRender = products) {
                 </button>
             </div>
         </div>
-    `).join('');
+    `;
+    }).join('');
 
     // Add event listeners for quantity buttons
     setupProductCardListeners();
@@ -167,7 +257,7 @@ function setupSearchAndFilter() {
     let searchQuery = '';
 
     function filterProducts() {
-        let filtered = products;
+        let filtered = [...products, ...bundles];
 
         // Filter by category
         if (activeCategory !== 'all') {
@@ -213,7 +303,7 @@ function setupSearchAndFilter() {
         searchQuery = '';
         if (searchInput) searchInput.value = '';
         filterButtons.forEach(b => b.classList.toggle('active', b.dataset.filter === 'all'));
-        renderProducts(products);
+        renderProducts([...products, ...bundles]);
     };
 }
 
@@ -221,7 +311,8 @@ function setupSearchAndFilter() {
 // CART MANAGEMENT
 // ============================================
 function addToCart(productId, quantity) {
-    const product = products.find(p => p.id === productId);
+    // Search in both products and bundles
+    const product = products.find(p => p.id === productId) || bundles.find(b => b.id === productId);
 
     if (!product) return;
 
@@ -368,7 +459,7 @@ function updateCartUI() {
             if (shippingContainer) shippingContainer.style.display = 'block';
             if (cartTotalSection) cartTotalSection.style.display = 'block';
 
-                if (cartItems) {
+            if (cartItems) {
                 cartItems.style.display = 'block';
                 cartItems.innerHTML = cart.map((item, index) => `
                     <div class="cart-item" style="display:flex; gap:10px; margin-bottom:10px; align-items:center;">
@@ -631,6 +722,15 @@ function setupEventListeners() {
             }
         });
     });
+
+    // Add click event listeners to product images
+    const productImages = document.querySelectorAll('.product-image');
+    productImages.forEach(image => {
+        image.addEventListener('click', () => {
+            const productId = parseInt(image.closest('.product-card').dataset.productId);
+            openProductDetailsModal(productId);
+        });
+    });
 }
 
 // ============================================
@@ -697,5 +797,102 @@ function flyToCart(sourceImage) {
     // Non-animated update: just briefly bump the cart badge visually by toggling class
     cartBtn.classList.add('bump');
     setTimeout(() => cartBtn.classList.remove('bump'), 250);
+}
+
+// Function to open the product details modal
+function openProductDetailsModal(productId) {
+    const product = products.find(p => p.id === productId) || bundles.find(b => b.id === productId);
+    if (!product) return;
+
+    const modal = document.getElementById('productDetailsModal');
+    const overlay = document.getElementById('productDetailsOverlay');
+    const modalBody = document.getElementById('productDetailsBody');
+
+    if (modal && overlay && modalBody) {
+        // Populate modal with product details
+        // Determine content based on type (Product vs Bundle)
+        let detailsHtml = '';
+        if (product.details) {
+            // It's a single product
+            detailsHtml = `
+                <p style="font-weight: bold; color: var(--primary-color); margin-bottom: var(--spacing-sm);">الحجم: ${product.size}</p>
+                <div style="margin-bottom: var(--spacing-sm);">
+                    <ul style="list-style: disc; padding-right: 20px; text-align: right;">
+                        ${product.details.map(detail => `<li style="margin-bottom: var(--spacing-xs);">${detail}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+        } else if (product.includes) {
+            // It's a bundle
+            detailsHtml = `
+                <p style="font-weight: bold; color: var(--primary-color); margin-bottom: var(--spacing-sm);">محتويات المجموعة:</p>
+                <div style="margin-bottom: var(--spacing-sm);">
+                    <ul style="list-style: check; padding-right: 20px; text-align: right;">
+                        ${product.includes.map(item => `<li style="margin-bottom: var(--spacing-xs);"><i class="fas fa-check" style="color: var(--success-color); margin-left: 5px;"></i> ${item}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+        }
+
+        modalBody.innerHTML = `
+            <img src="${product.image}" alt="${product.name}" class="product-image" onload="this.classList.add('loaded')" style="width: 100%; border-radius: var(--radius-md); margin-bottom: var(--spacing-md);">
+            <h2 style="font-family: var(--font-heading); color: var(--primary-color); margin-bottom: var(--spacing-sm);">${product.name}</h2>
+            <p style="color: var(--text-gray); margin-bottom: var(--spacing-md); line-height: 1.6;">${product.description}</p>
+            
+            ${detailsHtml}
+
+            <p style="font-weight: bold; color: var(--primary-color); font-size: 1.2rem; margin-top: var(--spacing-md); border-top: 1px solid var(--border-color); padding-top: var(--spacing-sm);">
+                السعر: ${product.price} جنيه
+            </p>
+        `;
+
+        // Show modal and overlay
+        modal.classList.add('active');
+        overlay.classList.add('active');
+
+        // Prevent background scrolling
+        document.body.classList.add('modal-open');
+
+        // Add event listener for closing the modal
+        const closeButton = document.getElementById('productDetailsClose');
+        if (closeButton) {
+            closeButton.addEventListener('click', closeProductDetailsModal);
+        }
+
+        overlay.addEventListener('click', closeProductDetailsModal);
+
+        // Add ESC key listener for accessibility
+        document.addEventListener('keydown', handleModalKeydown);
+    }
+}
+
+// Function to close the product details modal
+function closeProductDetailsModal() {
+    const modal = document.getElementById('productDetailsModal');
+    const overlay = document.getElementById('productDetailsOverlay');
+
+    if (modal && overlay) {
+        modal.classList.remove('active');
+        overlay.classList.remove('active');
+
+        // Restore background scrolling
+        document.body.classList.remove('modal-open');
+
+        // Remove event listeners
+        const closeButton = document.getElementById('productDetailsClose');
+        if (closeButton) {
+            closeButton.removeEventListener('click', closeProductDetailsModal);
+        }
+
+        overlay.removeEventListener('click', closeProductDetailsModal);
+        document.removeEventListener('keydown', handleModalKeydown);
+    }
+}
+
+// Handle ESC key to close modal
+function handleModalKeydown(event) {
+    if (event.key === 'Escape') {
+        closeProductDetailsModal();
+    }
 }
 

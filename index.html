@@ -36,14 +36,19 @@
 
     <!-- Floating Social Sidebar -->
     <div class="floating-social">
-        <a href="https://www.facebook.com/profile.php?id=61582813863599" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <img src="images/optimized/facebook.webp" alt="Facebook" loading="lazy" decoding="async" width="40" height="40">
+        <a href="https://www.facebook.com/profile.php?id=61582813863599" target="_blank" rel="noopener noreferrer"
+            aria-label="Facebook">
+            <img src="images/optimized/facebook.webp" alt="Facebook" loading="lazy" decoding="async" width="40"
+                height="40">
         </a>
-        <a href="https://instagram.com/cocoandrose_cosmotics" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <img src="images/optimized/instagram.webp" alt="Instagram" loading="lazy" decoding="async" width="40" height="40">
+        <a href="https://instagram.com/cocoandrose_cosmotics" target="_blank" rel="noopener noreferrer"
+            aria-label="Instagram">
+            <img src="images/optimized/instagram.webp" alt="Instagram" loading="lazy" decoding="async" width="40"
+                height="40">
         </a>
         <a href="https://wa.me/201020909939" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-            <img src="images/optimized/whatsapp.webp" alt="WhatsApp" loading="lazy" decoding="async" width="40" height="40">
+            <img src="images/optimized/whatsapp.webp" alt="WhatsApp" loading="lazy" decoding="async" width="40"
+                height="40">
         </a>
     </div>
 
@@ -62,7 +67,8 @@
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <img src="images/optimized/logo.webp" alt="Coco & Rose Logo" class="logo" decoding="async" width="160" height="50">
+                <img src="images/optimized/logo.webp" alt="Coco & Rose Logo" class="logo" decoding="async" width="160"
+                    height="50">
                 <nav class="nav">
                     <a href="#home" class="nav-link">الرئيسية</a>
                     <a href="#products" class="nav-link">المنتجات</a>
@@ -167,7 +173,8 @@
         <div class="container">
             <div class="lifestyle-content">
                 <div class="lifestyle-image" role="img" aria-label="جمال طبيعي في كل تفصيلة">
-                    <img src="images/optimized/lifestyle.webp" alt="Coco & Rose Natural Products" loading="lazy" decoding="async" width="1200" height="500">
+                    <img src="images/optimized/lifestyle.webp" alt="Coco & Rose Natural Products" loading="lazy"
+                        decoding="async" width="1200" height="500">
                     <div class="lifestyle-overlay">
                         <div class="lifestyle-text">
                             <h3>جمال طبيعي في كل تفصيلة</h3>
@@ -199,7 +206,7 @@
                 <div class="filter-buttons">
                     <button class="filter-btn active" data-filter="all">الكل</button>
                     <button class="filter-btn" data-filter="hair">العناية بالشعر</button>
-                    <button class="filter-btn" data-filter="skin">العناية بالبشرة</button>
+                    <button class="filter-btn" data-filter="bundle">التجميعات</button>
                 </div>
             </div>
 
@@ -237,7 +244,8 @@
                     <p class="customer-name">- عميلة سعيدة، القاهرة</p>
                 </div>
                 <div class="testimonial-image" aria-hidden="true">
-                    <img src="images/optimized/testimonial.webp" alt="شعر صحي من أول استخدام" loading="lazy" decoding="async" width="600" height="420">
+                    <img src="images/optimized/testimonial.webp" alt="شعر صحي من أول استخدام" loading="lazy"
+                        decoding="async" width="600" height="420">
                 </div>
             </div>
         </div>
@@ -340,8 +348,23 @@
         </div>
     </div>
 
+    <!-- Product Details Modal -->
+    <div class="modal" id="productDetailsModal" role="dialog" aria-modal="true" aria-labelledby="productDetailsTitle">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="productDetailsTitle">تفاصيل المنتج</h3>
+                <button class="modal-close" id="productDetailsClose" aria-label="إغلاق">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="productDetailsBody">
+                <!-- Product details will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
     <!-- Modal Overlay -->
-    <div class="modal-overlay" id="modalOverlay"></div>
+    <div class="modal-overlay" id="productDetailsOverlay"></div>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
@@ -364,7 +387,8 @@
                         <i class="fab fa-whatsapp"></i>
                         <div>
                             <h4>واتساب</h4>
-                            <p><a href="https://wa.me/201020909939" target="_blank" rel="noopener noreferrer">تواصل معنا مباشرة</a></p>
+                            <p><a href="https://wa.me/201020909939" target="_blank" rel="noopener noreferrer">تواصل معنا
+                                    مباشرة</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -402,15 +426,20 @@
                     <p><i class="fas fa-phone"></i> 01020909939</p>
                     <p><i class="fas fa-phone"></i> 01017377281</p>
                     <div class="social-links">
-                        <a href="https://wa.me/201020909939" target="_blank" rel="noopener noreferrer" aria-label="واتساب">
-                            <img src="images/optimized/whatsapp.webp" alt="WhatsApp" loading="lazy" decoding="async" width="40" height="40">
+                        <a href="https://wa.me/201020909939" target="_blank" rel="noopener noreferrer"
+                            aria-label="واتساب">
+                            <img src="images/optimized/whatsapp.webp" alt="WhatsApp" loading="lazy" decoding="async"
+                                width="40" height="40">
                         </a>
-                        <a href="https://www.facebook.com/profile.php?id=61582813863599" target="_blank" rel="noopener noreferrer"
-                            aria-label="فيسبوك">
-                            <img src="images/optimized/facebook.webp" alt="Facebook" loading="lazy" decoding="async" width="40" height="40">
+                        <a href="https://www.facebook.com/profile.php?id=61582813863599" target="_blank"
+                            rel="noopener noreferrer" aria-label="فيسبوك">
+                            <img src="images/optimized/facebook.webp" alt="Facebook" loading="lazy" decoding="async"
+                                width="40" height="40">
                         </a>
-                        <a href="https://instagram.com/cocoandrose_cosmotics" target="_blank" rel="noopener noreferrer" aria-label="إنستجرام">
-                            <img src="images/optimized/instagram.webp" alt="Instagram" loading="lazy" decoding="async" width="40" height="40">
+                        <a href="https://instagram.com/cocoandrose_cosmotics" target="_blank" rel="noopener noreferrer"
+                            aria-label="إنستجرام">
+                            <img src="images/optimized/instagram.webp" alt="Instagram" loading="lazy" decoding="async"
+                                width="40" height="40">
                         </a>
                     </div>
                 </div>
